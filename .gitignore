@@ -1,0 +1,4 @@
+/data/
+/src/.venv/
+/src/__pycache__/
+/src/app_cache.pkl
