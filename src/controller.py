@@ -6,18 +6,16 @@ from PyQt6.QtWidgets import (
     QTableWidgetItem,
     QHeaderView,
     QAbstractItemView,
-    QTableWidget,
+    QDialog,
 )
 import pandas as pd
 from enum import Enum
 
 from main_ui import Ui_MainWindow
+from module_selector import ModuleSelector
 from process_anomaly import ProcessAnomaly, Prak
 
-# In this app, we use this nomenclature for the versioning system
-# Major | Minor | Bug Fixes
-# Example : 1.0.0
-APP_VERSION = "pre-release"
+APP_VERSION = "1.0.0"
 
 
 class Page(Enum):
@@ -31,36 +29,28 @@ class MainController(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        # App State
         self.process = ProcessAnomaly()
         self.first_run: bool = True
         self.page_state: Page = Page.ORIGINAL
         self.praktikans_state: Prak = Prak.TE
 
-        # UI Stuff
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setup_maps()
 
-        # The first thing the program runs
         self.route()
         self.load_page(self.page_state)
         self.load_praktikans(self.praktikans_state)
 
     def route(self):
-        # Search Bar
         self.ui.search_bar.textChanged.connect(self.filter_table)
-
-        # ATC (Anomali Tumbang Comel)
         self.ui.label_version.setText(APP_VERSION)
         self.ui.btn_logo.clicked.connect(lambda: self.about_us())
 
-        # Anomaly Bar
         self.ui.btn_original.clicked.connect(lambda: self.load_page(Page.ORIGINAL))
         self.ui.btn_loaded.clicked.connect(lambda: self.load_page(Page.LOADED))
         self.ui.btn_anomaly.clicked.connect(lambda: self.load_page(Page.ANOMALY))
 
-        # Praktikans Bar
         self.ui.btn_praktikans_te.clicked.connect(lambda: self.load_praktikans(Prak.TE))
         self.ui.btn_praktikans_te_int.clicked.connect(
             lambda: self.load_praktikans(Prak.TE_INT)
@@ -78,7 +68,6 @@ class MainController(QMainWindow):
             lambda: self.load_praktikans(Prak.OTHERS)
         )
 
-        # Sidebar
         self.ui.btn_analyze.clicked.connect(self.analyze_anomaly)
         self.ui.btn_import.clicked.connect(self.import_praktikans)
         self.ui.btn_export.clicked.connect(self.export_anomaly)
@@ -116,14 +105,7 @@ class MainController(QMainWindow):
             Prak.OTHERS: self.ui.btn_praktikans_others,
         }
 
-        self.data_getters = {
-            Page.ORIGINAL: self.process.get_original,
-            Page.LOADED: self.process.get_loaded,
-            Page.ANOMALY: self.process.get_anomaly,
-        }
-
     def load_page(self, page: Page):
-        # Disable that page button if it is already on the page
         for p, btn in self.page_buttons.items():
             btn.setEnabled(p != page)
 
@@ -133,12 +115,9 @@ class MainController(QMainWindow):
         self.page_state = page
         self.first_run = False
         self.refresh_display()
-
-        # Switch stacked widget using the mapping
         self.ui.stackedWidget.setCurrentWidget(self.page_widgets[page])
 
     def load_praktikans(self, praktikans: Prak):
-        # Disable that praktikans button if it is already on the page
         for p, btn in self.praktikans_buttons.items():
             btn.setEnabled(p != praktikans)
 
@@ -156,17 +135,21 @@ class MainController(QMainWindow):
         if not file_paths:
             return
 
-        result = QMessageBox.warning(
+        reply = QMessageBox.question(
             self,
-            "Import Data",
-            "Are you sure to import the original data?",
-            QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel,
+            "Import Original Data",
+            "Do you want to OVERWRITE the existing original data?\n\nSelect 'Yes' to reset the field, or 'No' to just append, or 'Cancel' to you know, cancel.",
+            QMessageBox.StandardButton.Yes
+            | QMessageBox.StandardButton.No
+            | QMessageBox.StandardButton.Cancel,
         )
 
-        if result == QMessageBox.StandardButton.Cancel:
+        if reply == QMessageBox.StandardButton.Cancel:
             return
 
-        self.process.load_batch("original", file_paths)
+        overwrite = reply == QMessageBox.StandardButton.Yes
+
+        self.process.load_batch("original", file_paths, overwrite=overwrite)
         last_category = self.process.categorize_file(file_paths[-1])
 
         self.load_page(Page.ORIGINAL)
@@ -179,27 +162,72 @@ class MainController(QMainWindow):
         if not file_paths:
             return
 
-        self.process.load_batch("loaded", file_paths)
+        reply = QMessageBox.question(
+            self,
+            "Import Loaded Data",
+            "Do you want to OVERWRITE the existing loaded data?\n\nSelect 'Yes' to reset the field, or 'No' to just append, or 'Cancel' to you know, cancel.",
+            QMessageBox.StandardButton.Yes
+            | QMessageBox.StandardButton.No
+            | QMessageBox.StandardButton.Cancel,
+        )
 
+        if reply == QMessageBox.StandardButton.Cancel:
+            return
+
+        overwrite = reply == QMessageBox.StandardButton.Yes
+
+        self.process.load_batch("loaded", file_paths, overwrite=overwrite)
         last_category = self.process.categorize_file(file_paths[-1])
 
         self.load_page(Page.LOADED)
         self.load_praktikans(last_category)
 
     def analyze_anomaly(self):
-        self.process.analyze()
-        self.load_page(Page.ANOMALY)
-        self.refresh_display()
+        if not self.process.loaded_data:
+            QMessageBox.warning(
+                self, "No Data", "Please load practicing data first before analyzing."
+            )
+            return
+
+        first_df = next(iter(self.process.loaded_data.values()), pd.DataFrame())
+        if first_df.empty:
+            QMessageBox.warning(self, "Empty Data", "The loaded data is empty.")
+            return
+
+        available_modules = self.process.get_available_modules(first_df)
+        if not available_modules:
+            QMessageBox.warning(
+                self,
+                "No Modules",
+                "Could not find any modules in the loaded spreadsheets.",
+            )
+            return
+
+        dialog = ModuleSelector(available_modules, self)
+        if dialog.exec() == QDialog.DialogCode.Accepted:
+            selected_modules = dialog.get_selected_modules()
+            if not selected_modules:
+                QMessageBox.warning(
+                    self,
+                    "Selection Required",
+                    "You must select at least one module to analyze.",
+                )
+                return
+
+            self.process.analyze(selected_modules)
+            self.load_page(Page.ANOMALY)
+            self.refresh_display()
 
     def export_anomaly(self):
         file_path, _ = QFileDialog.getSaveFileName(
-            None,
-            "Export Anomaly Results",
-            "",
-            "Excel Files (*.xlsx *.xls);;All Files (*)",
+            self, "Save Anomaly Report", "", "Excel Files (*.xlsx);;All Files (*)"
         )
         if not file_path:
             return
+
+        if not file_path.endswith(".xlsx"):
+            file_path += ".xlsx"
+
         self.process.export(file_path)
 
     def load_dataframe_to_table(self, table, df: pd.DataFrame):
@@ -213,14 +241,24 @@ class MainController(QMainWindow):
         table.setRowCount(df.shape[0])
         table.setColumnCount(df.shape[1])
 
-        table.setHorizontalHeaderLabels(df.columns.astype(str))
+        headers = []
+        for col in df.columns:
+            if isinstance(col, tuple):
+                headers.append(" - ".join([str(c) for c in col if str(c).strip()]))
+            else:
+                headers.append(str(col))
+
+        table.setHorizontalHeaderLabels(headers)
 
         for row in range(df.shape[0]):
             for col in range(df.shape[1]):
                 value = df.iat[row, col]
 
                 item = QTableWidgetItem()
-                item.setData(Qt.ItemDataRole.DisplayRole, value)
+                if pd.isna(value):
+                    item.setData(Qt.ItemDataRole.DisplayRole, "")
+                else:
+                    item.setData(Qt.ItemDataRole.DisplayRole, value)
                 table.setItem(row, col, item)
 
         table.horizontalHeader().setSectionResizeMode(
@@ -273,13 +311,11 @@ class MainController(QMainWindow):
 
         for row in range(table.rowCount()):
             match = False
-
             for col in range(table.columnCount()):
                 item = table.item(row, col)
                 if item and text in item.text().lower():
                     match = True
                     break
-
             table.setRowHidden(row, not match)
 
     def about_us(self):
