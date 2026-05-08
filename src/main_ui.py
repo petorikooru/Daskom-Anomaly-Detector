@@ -19,7 +19,9 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
         self.frame_2 = QtWidgets.QFrame(parent=self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
@@ -30,7 +32,9 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_2)
         self.verticalLayout.setObjectName("verticalLayout")
         self.btn_analyze = QtWidgets.QToolButton(parent=self.frame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_analyze.sizePolicy().hasHeightForWidth())
@@ -40,10 +44,16 @@ class Ui_MainWindow(object):
         font.setBold(True)
         self.btn_analyze.setFont(font)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../ui/../assets/icons/code-typedef.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(
+            QtGui.QPixmap("../ui/../assets/icons/code-typedef.svg"),
+            QtGui.QIcon.Mode.Normal,
+            QtGui.QIcon.State.Off,
+        )
         self.btn_analyze.setIcon(icon)
         self.btn_analyze.setIconSize(QtCore.QSize(16, 16))
-        self.btn_analyze.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly)
+        self.btn_analyze.setToolButtonStyle(
+            QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly
+        )
         self.btn_analyze.setAutoRaise(False)
         self.btn_analyze.setObjectName("btn_analyze")
         self.group_sidebar = QtWidgets.QButtonGroup(MainWindow)
@@ -51,7 +61,9 @@ class Ui_MainWindow(object):
         self.group_sidebar.addButton(self.btn_analyze)
         self.verticalLayout.addWidget(self.btn_analyze)
         self.btn_export = QtWidgets.QToolButton(parent=self.frame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_export.sizePolicy().hasHeightForWidth())
@@ -61,7 +73,11 @@ class Ui_MainWindow(object):
         font.setBold(True)
         self.btn_export.setFont(font)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../ui/../assets/icons/document-print.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(
+            QtGui.QPixmap("../ui/../assets/icons/document-print.svg"),
+            QtGui.QIcon.Mode.Normal,
+            QtGui.QIcon.State.Off,
+        )
         self.btn_export.setIcon(icon1)
         self.btn_export.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly)
         self.btn_export.setAutoRaise(False)
@@ -69,7 +85,9 @@ class Ui_MainWindow(object):
         self.group_sidebar.addButton(self.btn_export)
         self.verticalLayout.addWidget(self.btn_export)
         self.btn_import = QtWidgets.QToolButton(parent=self.frame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_import.sizePolicy().hasHeightForWidth())
@@ -79,7 +97,11 @@ class Ui_MainWindow(object):
         font.setBold(True)
         self.btn_import.setFont(font)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("../ui/../assets/icons/document-import.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(
+            QtGui.QPixmap("../ui/../assets/icons/document-import.svg"),
+            QtGui.QIcon.Mode.Normal,
+            QtGui.QIcon.State.Off,
+        )
         self.btn_import.setIcon(icon2)
         self.btn_import.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly)
         self.btn_import.setObjectName("btn_import")
@@ -87,7 +109,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.btn_import)
         self.gridLayout.addWidget(self.frame_2, 1, 0, 2, 1)
         self.frame_4 = QtWidgets.QFrame(parent=self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
@@ -99,10 +123,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setContentsMargins(6, 6, -1, -1)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.widget_danger = QtWidgets.QWidget(parent=self.frame_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.widget_danger.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.widget_danger.sizePolicy().hasHeightForWidth()
+        )
         self.widget_danger.setSizePolicy(sizePolicy)
         self.widget_danger.setObjectName("widget_danger")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.widget_danger)
@@ -125,22 +153,30 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.label_11)
         self.verticalLayout_4.addWidget(self.widget_danger)
         self.btn_load_original = QtWidgets.QToolButton(parent=self.frame_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_load_original.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.btn_load_original.sizePolicy().hasHeightForWidth()
+        )
         self.btn_load_original.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("JetBrainsMono Nerd Font")
         font.setBold(True)
         self.btn_load_original.setFont(font)
         self.btn_load_original.setIcon(icon2)
-        self.btn_load_original.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly)
+        self.btn_load_original.setToolButtonStyle(
+            QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly
+        )
         self.btn_load_original.setObjectName("btn_load_original")
         self.group_sidebar.addButton(self.btn_load_original)
         self.verticalLayout_4.addWidget(self.btn_load_original)
         self.btn_reset = QtWidgets.QToolButton(parent=self.frame_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_reset.sizePolicy().hasHeightForWidth())
@@ -150,7 +186,11 @@ class Ui_MainWindow(object):
         font.setBold(True)
         self.btn_reset.setFont(font)
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("../ui/../assets/icons/trash-empty.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(
+            QtGui.QPixmap("../ui/../assets/icons/trash-empty.svg"),
+            QtGui.QIcon.Mode.Normal,
+            QtGui.QIcon.State.Off,
+        )
         self.btn_reset.setIcon(icon3)
         self.btn_reset.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly)
         self.btn_reset.setObjectName("btn_reset")
@@ -182,10 +222,18 @@ class Ui_MainWindow(object):
         self.page_empty.setObjectName("page_empty")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.page_empty)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(
+            20,
+            40,
+            QtWidgets.QSizePolicy.Policy.Minimum,
+            QtWidgets.QSizePolicy.Policy.Expanding,
+        )
         self.verticalLayout_5.addItem(spacerItem)
         self.label_5 = QtWidgets.QLabel(parent=self.page_empty)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred,
+            QtWidgets.QSizePolicy.Policy.Preferred,
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
@@ -198,7 +246,12 @@ class Ui_MainWindow(object):
         self.label_5.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_5.setObjectName("label_5")
         self.verticalLayout_5.addWidget(self.label_5)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            20,
+            40,
+            QtWidgets.QSizePolicy.Policy.Minimum,
+            QtWidgets.QSizePolicy.Policy.Expanding,
+        )
         self.verticalLayout_5.addItem(spacerItem1)
         self.stackedWidget.addWidget(self.page_empty)
         self.page_anomaly = QtWidgets.QWidget()
@@ -233,10 +286,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.btn_praktikans_te = QtWidgets.QToolButton(parent=self.widget_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_praktikans_te.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.btn_praktikans_te.sizePolicy().hasHeightForWidth()
+        )
         self.btn_praktikans_te.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("JetBrainsMono Nerd Font")
@@ -245,10 +302,14 @@ class Ui_MainWindow(object):
         self.btn_praktikans_te.setObjectName("btn_praktikans_te")
         self.horizontalLayout_4.addWidget(self.btn_praktikans_te)
         self.btn_praktikans_te_int = QtWidgets.QToolButton(parent=self.widget_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_praktikans_te_int.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.btn_praktikans_te_int.sizePolicy().hasHeightForWidth()
+        )
         self.btn_praktikans_te_int.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("JetBrainsMono Nerd Font")
@@ -257,10 +318,14 @@ class Ui_MainWindow(object):
         self.btn_praktikans_te_int.setObjectName("btn_praktikans_te_int")
         self.horizontalLayout_4.addWidget(self.btn_praktikans_te_int)
         self.btn_praktikans_tt = QtWidgets.QToolButton(parent=self.widget_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_praktikans_tt.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.btn_praktikans_tt.sizePolicy().hasHeightForWidth()
+        )
         self.btn_praktikans_tt.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("JetBrainsMono Nerd Font")
@@ -269,10 +334,14 @@ class Ui_MainWindow(object):
         self.btn_praktikans_tt.setObjectName("btn_praktikans_tt")
         self.horizontalLayout_4.addWidget(self.btn_praktikans_tt)
         self.btn_praktikans_tt_int = QtWidgets.QToolButton(parent=self.widget_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_praktikans_tt_int.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.btn_praktikans_tt_int.sizePolicy().hasHeightForWidth()
+        )
         self.btn_praktikans_tt_int.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("JetBrainsMono Nerd Font")
@@ -281,10 +350,14 @@ class Ui_MainWindow(object):
         self.btn_praktikans_tt_int.setObjectName("btn_praktikans_tt_int")
         self.horizontalLayout_4.addWidget(self.btn_praktikans_tt_int)
         self.btn_praktikans_tf = QtWidgets.QToolButton(parent=self.widget_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_praktikans_tf.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.btn_praktikans_tf.sizePolicy().hasHeightForWidth()
+        )
         self.btn_praktikans_tf.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("JetBrainsMono Nerd Font")
@@ -293,10 +366,14 @@ class Ui_MainWindow(object):
         self.btn_praktikans_tf.setObjectName("btn_praktikans_tf")
         self.horizontalLayout_4.addWidget(self.btn_praktikans_tf)
         self.btn_praktikans_tb = QtWidgets.QToolButton(parent=self.widget_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_praktikans_tb.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.btn_praktikans_tb.sizePolicy().hasHeightForWidth()
+        )
         self.btn_praktikans_tb.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("JetBrainsMono Nerd Font")
@@ -305,10 +382,14 @@ class Ui_MainWindow(object):
         self.btn_praktikans_tb.setObjectName("btn_praktikans_tb")
         self.horizontalLayout_4.addWidget(self.btn_praktikans_tb)
         self.btn_praktikans_tse = QtWidgets.QToolButton(parent=self.widget_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_praktikans_tse.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.btn_praktikans_tse.sizePolicy().hasHeightForWidth()
+        )
         self.btn_praktikans_tse.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("JetBrainsMono Nerd Font")
@@ -317,10 +398,14 @@ class Ui_MainWindow(object):
         self.btn_praktikans_tse.setObjectName("btn_praktikans_tse")
         self.horizontalLayout_4.addWidget(self.btn_praktikans_tse)
         self.btn_praktikans_others = QtWidgets.QToolButton(parent=self.widget_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btn_praktikans_others.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.btn_praktikans_others.sizePolicy().hasHeightForWidth()
+        )
         self.btn_praktikans_others.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("JetBrainsMono Nerd Font")
@@ -330,7 +415,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.addWidget(self.btn_praktikans_others)
         self.gridLayout_2.addWidget(self.widget_3, 8, 0, 1, 1)
         self.widget = QtWidgets.QWidget(parent=self.frame_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
@@ -407,7 +494,12 @@ class Ui_MainWindow(object):
         self.label_anomaly.setFont(font)
         self.label_anomaly.setObjectName("label_anomaly")
         self.horizontalLayout_2.addWidget(self.label_anomaly)
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            40,
+            20,
+            QtWidgets.QSizePolicy.Policy.Expanding,
+            QtWidgets.QSizePolicy.Policy.Minimum,
+        )
         self.horizontalLayout_2.addItem(spacerItem2)
         self.label_6 = QtWidgets.QLabel(parent=self.widget)
         font = QtGui.QFont()
@@ -417,7 +509,9 @@ class Ui_MainWindow(object):
         self.label_6.setObjectName("label_6")
         self.horizontalLayout_2.addWidget(self.label_6)
         self.search_bar = QtWidgets.QLineEdit(parent=self.widget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.search_bar.sizePolicy().hasHeightForWidth())
@@ -429,7 +523,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.search_bar)
         self.gridLayout_2.addWidget(self.widget, 0, 0, 1, 1)
         self.widget_2 = QtWidgets.QWidget(parent=self.frame_3)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget_2.sizePolicy().hasHeightForWidth())
@@ -440,7 +536,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.btn_original = QtWidgets.QToolButton(parent=self.widget_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_original.sizePolicy().hasHeightForWidth())
@@ -455,7 +553,9 @@ class Ui_MainWindow(object):
         self.group_tabs.addButton(self.btn_original)
         self.horizontalLayout_3.addWidget(self.btn_original)
         self.btn_loaded = QtWidgets.QToolButton(parent=self.widget_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_loaded.sizePolicy().hasHeightForWidth())
@@ -468,7 +568,9 @@ class Ui_MainWindow(object):
         self.group_tabs.addButton(self.btn_loaded)
         self.horizontalLayout_3.addWidget(self.btn_loaded)
         self.btn_anomaly = QtWidgets.QToolButton(parent=self.widget_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_anomaly.sizePolicy().hasHeightForWidth())
@@ -483,7 +585,9 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.widget_2, 1, 0, 1, 1)
         self.gridLayout.addWidget(self.frame_3, 1, 1, 3, 1)
         self.frame = QtWidgets.QFrame(parent=self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
@@ -507,7 +611,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.label = QtWidgets.QLabel(parent=self.widget_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
@@ -519,7 +625,9 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.verticalLayout_3.addWidget(self.label)
         self.widget_5 = QtWidgets.QWidget(parent=self.widget_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget_5.sizePolicy().hasHeightForWidth())
@@ -530,7 +638,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setSpacing(0)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.label_2 = QtWidgets.QLabel(parent=self.widget_5)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
@@ -542,10 +652,14 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName("label_2")
         self.horizontalLayout_5.addWidget(self.label_2)
         self.label_version = QtWidgets.QLabel(parent=self.widget_5)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Maximum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_version.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.label_version.sizePolicy().hasHeightForWidth()
+        )
         self.label_version.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("JetBrainsMono Nerd Font")
@@ -555,7 +669,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.addWidget(self.label_version)
         self.verticalLayout_3.addWidget(self.widget_5)
         self.horizontalLayout.addWidget(self.widget_4)
-        spacerItem3 = QtWidgets.QSpacerItem(337, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            337,
+            20,
+            QtWidgets.QSizePolicy.Policy.Expanding,
+            QtWidgets.QSizePolicy.Policy.Minimum,
+        )
         self.horizontalLayout.addItem(spacerItem3)
         self.label_3 = QtWidgets.QLabel(parent=self.frame)
         font = QtGui.QFont()
@@ -564,12 +683,21 @@ class Ui_MainWindow(object):
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         self.horizontalLayout.addWidget(self.label_3)
-        spacerItem4 = QtWidgets.QSpacerItem(5, 20, QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem4 = QtWidgets.QSpacerItem(
+            5,
+            20,
+            QtWidgets.QSizePolicy.Policy.Fixed,
+            QtWidgets.QSizePolicy.Policy.Minimum,
+        )
         self.horizontalLayout.addItem(spacerItem4)
         self.btn_logo = QtWidgets.QToolButton(parent=self.frame)
         self.btn_logo.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("../ui/../assets/logo.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
+        icon4.addPixmap(
+            QtGui.QPixmap("../ui/../assets/logo.png"),
+            QtGui.QIcon.Mode.Normal,
+            QtGui.QIcon.State.On,
+        )
         self.btn_logo.setIcon(icon4)
         self.btn_logo.setIconSize(QtCore.QSize(48, 48))
         self.btn_logo.setObjectName("btn_logo")
@@ -610,11 +738,13 @@ class Ui_MainWindow(object):
         self.label_15.setText(_translate("MainWindow", ":"))
         self.label_anomaly.setText(_translate("MainWindow", "0"))
         self.label_6.setText(_translate("MainWindow", "Search"))
-        self.search_bar.setPlaceholderText(_translate("MainWindow", "Find by username or NIM"))
+        self.search_bar.setPlaceholderText(
+            _translate("MainWindow", "Find by username or NIM")
+        )
         self.btn_original.setText(_translate("MainWindow", "Original"))
         self.btn_loaded.setText(_translate("MainWindow", "Loaded"))
         self.btn_anomaly.setText(_translate("MainWindow", "Anomaly"))
-        self.label.setText(_translate("MainWindow", "Anomaly Checker"))
+        self.label.setText(_translate("MainWindow", "Anomaly Tracker"))
         self.label_2.setText(_translate("MainWindow", "Version : "))
         self.label_version.setText(_translate("MainWindow", "0.0"))
         self.label_3.setText(_translate("MainWindow", "Assignment Task Committee"))
