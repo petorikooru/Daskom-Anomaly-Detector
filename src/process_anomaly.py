@@ -225,12 +225,12 @@ class ProcessAnomaly:
 
             try:
                 nim_col = next(
-                    col for col in df.columns if "nim" in str(col[0]).lower()
+                    col for col in df.columns if "nim" in str(col[1]).lower()
                 )
                 nama_col = next(
                     col
                     for col in df.columns
-                    if "nama" in str(col[0]).lower() or "nma" in str(col[0]).lower()
+                    if "nama" in str(col[1]).lower() or "nma" in str(col[1]).lower()
                 )
             except StopIteration:
                 print(
@@ -322,11 +322,11 @@ class ProcessAnomaly:
 
                 for module in selected_modules:
                     try:
-                        presensi = row.get((module, "Presensi"), "")
+                        presensi = row.get((module, "Kehadiran"), "")
                         tp = row.get((module, "TP"), 0)
                         ta = row.get((module, "TA"), 0)
-                        d = row.get((module, "D"), 0)
-                        i = row.get((module, "I"), 0)
+                        d = row.get((module, "Praktikum"), 0)
+                        i = row.get((module, "Jurnal"), 0)
 
                         if self.is_empty(presensi):
                             invalid_data.append(
