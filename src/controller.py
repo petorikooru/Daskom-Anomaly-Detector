@@ -15,7 +15,7 @@ from main_ui import Ui_MainWindow
 from module_selector import ModuleSelector
 from process_anomaly import ProcessAnomaly, Prak
 
-APP_VERSION = "1.0.1"
+APP_VERSION = "1.0.2"
 
 
 class Page(Enum):
